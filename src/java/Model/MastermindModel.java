@@ -14,19 +14,23 @@ public class MastermindModel {
     private ArrayList<int[]> versuche;
     private ArrayList<int[]> check;
     private int[] zahlen;
+    
     public MastermindModel() {
         zahlen = new int[4];
         for (int i = 0 ; i < 4; i++) {
             zahlen[1] = ((int) (Math.random()*8+1));
 	}
     }
+    
     public ArrayList<int[]> check(int[] vers) {
         int[] checkvers = new int[2];
         checkvers[1] = checkFarbe(vers);
         checkvers[2] = checkStelle(vers);
         check.add(checkvers);
+        versuche.add(vers);
         return check;
     }
+    
     public int checkFarbe(int[] vers) {
         int farbe = 0;
         for(int i = 0; i<4;i++) {
@@ -34,6 +38,7 @@ public class MastermindModel {
                 if(zahlen[i]==vers[ii])farbe++;
             }
         }
+        farbe-= checkStelle(vers);
         return farbe;
     }
 
@@ -43,5 +48,17 @@ public class MastermindModel {
             if(vers[i]==zahlen[i])stelle++;
         }
         return stelle;
+    }
+
+    public ArrayList<int[]> getVersuche() {
+        return versuche;
+    }
+
+    public ArrayList<int[]> getCheck() {
+        return check;
+    }
+
+    public int[] getZahlen() {
+        return zahlen;
     }
 }
