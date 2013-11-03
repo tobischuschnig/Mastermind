@@ -24,14 +24,16 @@ public class MastermindModel {
         for (int i = 0 ; i < 4; i++) {
             zahlen[1] = ((int) (Math.random()*8+1));
 	}
+        versuche = new ArrayList();
+        check = new ArrayList();
     }
     
     public ArrayList<int[]> check(int[] vers) {
         int[] checkvers = new int[2];
-        checkvers[1] = checkFarbe(vers);
-        checkvers[2] = checkStelle(vers);
+        checkvers[0] = checkFarbe(vers);
+        checkvers[1] = checkStelle(vers);
         if(check.size()==10)verloren = true;
-        if(checkvers[2]==4)gewonnen = true;
+        if(checkvers[1]==4)gewonnen = true;
         check.add(checkvers);
         versuche.add(vers);
         return check;
@@ -74,6 +76,6 @@ public class MastermindModel {
             aus+="<br>"+iva[0]+"&nbsp;"+iva[1]+"&nbsp;"+iva[2]+"&nbsp;"+iva[3]+"&nbsp;";
             aus+="&nbsp;&nbsp;&nbsp;<span style='color:red'>"+"Richtige Farbe:"+ica[0]+"</span>&nbsp;&nbsp;<span style='color:white'>"+"Richtige Stelle:" + ica[1] + "</span>";
         }
-        return "";
+        return aus;
     }
 }
