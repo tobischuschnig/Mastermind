@@ -4,6 +4,7 @@
  */
 package Cotroller;
 
+import Model.MastermindModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,6 +18,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MastermindController extends HttpServlet {
 
+    MastermindModel master;
+    
+    @Override
+    public void init() throws ServletException {
+        master = new MastermindModel();
+    }
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and

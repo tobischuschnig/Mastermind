@@ -5,10 +5,23 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Mastermind Anleitung</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <div>TODO write content</div>
+       <h1>Mastermind JSP Spiel</h1>
+
+        <h2>Anleitung:</h2>
+        <p>
+            Der Computer waehlt zufaellig 4 Zahlen zwischen 1 und 9. <br>
+            Das Ziel des Spiels ist es diese zu erraten.<br>
+            Dafuer hat man 10 Runden und kann jedes mal einen Tipp abgeben.<br>
+            Nach einem Tipp wird einem die Anzahl der richtigen Zahlen an der richtigen <br>
+            Stelle in weiss ausgegeben und die Anzahl der richtigen Zahlen an der falschen <br>
+            Stelle in scharz ausgegeben.
+        </p>
+        <form method="POST" action="MastermindView.jsp">
+            <input type=submit value="Start" />
+        </form>
     </body>
 </html>
