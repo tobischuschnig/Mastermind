@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -60,15 +60,15 @@ public class MastermindModel {
         return stelle;
     }
     
-    private boolean sieg() {
+    public boolean sieg() {
        return gewonnen; 
     }
     
-    private boolean niederlage() {
+    public boolean niederlage() {
         return verloren;
     }
     
-    private String stringHTML() {
+    public String stringHTML() {
         aus = "";
         Iterator iv = versuche.iterator();
         Iterator ic = check.iterator();

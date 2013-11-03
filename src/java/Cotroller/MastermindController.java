@@ -2,11 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cotroller;
+package cotroller;
 
-import Model.MastermindModel;
+import model.MastermindModel;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -52,7 +51,7 @@ public class MastermindController extends HttpServlet {
         }
         boolean gewonnen = master.sieg();
         boolean verloren = master.niederlage();
-        String text = master.ausString();
+        String text = master.stringHTML();
         
         request.setAttribute("gewonnen", gewonnen);
         request.setAttribute("verloren", verloren);
@@ -101,6 +100,6 @@ public class MastermindController extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Mastermind";
     }// </editor-fold>
 }
