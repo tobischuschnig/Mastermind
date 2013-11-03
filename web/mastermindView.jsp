@@ -1,5 +1,5 @@
 <%-- 
-    Document   : MastermindView
+    Document   : mastermindView
     Created on : 03.11.2013, 16:12:29
     Author     : tobi
 --%>
@@ -11,12 +11,15 @@
         <title>Mastermind</title>
     </head>
     <body bgcolor ="#0c1afc">
+        <br>
+        <center>
         <h1> Mastermind </h1>
         <%
             boolean gewonnen = false;
             boolean verloren = false;
             String text = "";
-            if(!gewonnen && !verloren) {   %>
+            if(!gewonnen && !verloren) {  
+                out.print("Versuch " + "1" + " von 10:<br>");%>
                 <form method="POST" action="SelectNumber.do">
                     <input type=text size="2" name="number1"/>
                     <input type=text size="2" name="number2"/>
@@ -39,5 +42,5 @@
                 out.print("<br><br><h2>Sie haben verloren!</h2>");
             }
         %>        
-    </body>
+    </center>
 </html>

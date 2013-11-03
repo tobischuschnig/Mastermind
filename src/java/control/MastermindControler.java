@@ -1,13 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package cotroller;
+package control;
 
 import model.MastermindModel;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author tobi
  */
-public class MastermindController extends HttpServlet {
+//@WebServlet(name = "MastermindController", urlPatterns = {"/SelectNumber.do"})
+public class MastermindControler extends HttpServlet {
 
     MastermindModel master;
     
@@ -35,9 +33,9 @@ public class MastermindController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html");
         //Eingaben speichern
         String n1 = request.getParameter("number1");
         String n2 = request.getParameter("number2");
@@ -58,7 +56,7 @@ public class MastermindController extends HttpServlet {
         request.setAttribute("text", text);
         
         //weiterleiten an game jsp
-        RequestDispatcher view = request.getRequestDispatcher("MastermindView.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("mastermindView.jsp");
         view.forward(request, response);
     }
 
@@ -73,7 +71,7 @@ public class MastermindController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -88,7 +86,7 @@ public class MastermindController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
