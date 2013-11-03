@@ -14,6 +14,8 @@ public class MastermindModel {
     private ArrayList<int[]> versuche;
     private ArrayList<int[]> check;
     private int[] zahlen;
+    boolean gewonnen = false;
+    boolean verloren = false;
     
     public MastermindModel() {
         zahlen = new int[4];
@@ -26,6 +28,8 @@ public class MastermindModel {
         int[] checkvers = new int[2];
         checkvers[1] = checkFarbe(vers);
         checkvers[2] = checkStelle(vers);
+        if(check.size()==10)verloren = true;
+        if(checkvers[2]==4)gewonnen = true;
         check.add(checkvers);
         versuche.add(vers);
         return check;
@@ -49,16 +53,16 @@ public class MastermindModel {
         }
         return stelle;
     }
-
-    public ArrayList<int[]> getVersuche() {
-        return versuche;
+    
+    private boolean sieg() {
+       return gewonnen; 
     }
-
-    public ArrayList<int[]> getCheck() {
-        return check;
+    
+    private boolean niederlage() {
+        return verloren;
     }
-
-    public int[] getZahlen() {
-        return zahlen;
+    
+    private String ausString() {
+        return "";
     }
 }

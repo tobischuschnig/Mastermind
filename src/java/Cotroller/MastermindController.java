@@ -7,6 +7,7 @@ package Cotroller;
 import Model.MastermindModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,21 +39,28 @@ public class MastermindController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MastermindController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MastermindController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
+        //Eingaben speichern
+        String n1 = request.getParameter("number1");
+        String n2 = request.getParameter("number2");
+        String n3 = request.getParameter("number3");
+        String n4 = request.getParameter("number4");
+        
+        //mittels regex Eingaben pruefen
+        if(n1.matches("[1-9]") && n2.matches("[1-9]") && n3.matches("[1-9]") && n4.matches("[1-9]")){
+            int[] vers = {Integer.parseInt(n1), Integer.parseInt(n2), Integer.parseInt(n3), Integer.parseInt(n4)};
+            master.check(vers);
         }
+        boolean gewonnen = master.sieg();
+        boolean verloren = master.niederlage();
+        String text = master.ausString();
+        
+        request.setAttribute("gewonnen", gewonnen);
+        request.setAttribute("verloren", verloren);
+        request.setAttribute("text", text);
+        
+        //weiterleiten an game jsp
+        RequestDispatcher view = request.getRequestDispatcher("MastermindView.jsp");
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
