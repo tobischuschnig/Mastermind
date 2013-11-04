@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Mastermind</title>
     </head>
-    <body bgcolor ="#0c1afc">
+    <body bgcolor ="#9999FF">
         <br>
         <center>
         <h1> Mastermind </h1>

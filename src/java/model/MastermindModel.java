@@ -15,15 +15,19 @@ public class MastermindModel {
     private boolean verloren;
     private String aus;
     
-    
     public MastermindModel() {
         gewonnen = false;
         verloren = false;
         aus = "";
+        //zahlen = new int[4];
+        //for (int i = 0 ; i < 4; i++) {
+        //    zahlen[i] = ((int) (Math.random()*8+1));
+	//}
         zahlen = new int[4];
-        for (int i = 0 ; i < 4; i++) {
-            zahlen[1] = ((int) (Math.random()*8+1));
-	}
+        zahlen[0] = 2;
+        zahlen[1] = 3;
+        zahlen[2] = 4;
+        zahlen[3] = 5;
         versuche = new ArrayList();
         check = new ArrayList();
     }
@@ -32,7 +36,7 @@ public class MastermindModel {
         int[] checkvers = new int[2];
         checkvers[0] = checkFarbe(vers);
         checkvers[1] = checkStelle(vers);
-        if(check.size()==10)verloren = true;
+        if(check.size()==9)verloren = true;
         if(checkvers[1]==4)gewonnen = true;
         check.add(checkvers);
         versuche.add(vers);
@@ -74,7 +78,7 @@ public class MastermindModel {
             int[] iva = (int[]) iv.next();
             int[] ica = (int[]) ic.next();
             aus+="<br>"+iva[0]+"&nbsp;"+iva[1]+"&nbsp;"+iva[2]+"&nbsp;"+iva[3]+"&nbsp;";
-            aus+="&nbsp;&nbsp;&nbsp;<span style='color:red'>"+"Richtige Farbe:"+ica[0]+"</span>&nbsp;&nbsp;<span style='color:white'>"+"Richtige Stelle:" + ica[1] + "</span>";
+            aus+="&nbsp;&nbsp;&nbsp;<span style='color:red'>"+"Richtige Zahl:"+ica[0]+"</span>&nbsp;&nbsp;<span style='color:white'>"+"Richtige Stelle:" + ica[1] + "</span>";
         }
         return aus;
     }

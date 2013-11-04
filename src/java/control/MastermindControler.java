@@ -40,11 +40,12 @@ public class MastermindControler extends HttpServlet {
         String n2 = request.getParameter("number2");
         String n3 = request.getParameter("number3");
         String n4 = request.getParameter("number4");
-        
-        //mittels regex Eingaben pruefen
-        if(n1.matches("[1-9]") && n2.matches("[1-9]") && n3.matches("[1-9]") && n4.matches("[1-9]")){
-            int[] vers = {Integer.parseInt(n1), Integer.parseInt(n2), Integer.parseInt(n3), Integer.parseInt(n4)};
-            master.check(vers);
+        if(n1 != null && n2 != null && n3 != null && n4 != null ) {
+            //mittels regex Eingaben pruefen
+            if(n1.matches("[1-9]") && n2.matches("[1-9]") && n3.matches("[1-9]") && n4.matches("[1-9]")){
+                int[] vers = {Integer.parseInt(n1), Integer.parseInt(n2), Integer.parseInt(n3), Integer.parseInt(n4)};
+                master.check(vers);
+            } 
         }
         boolean gewonnen = master.sieg();
         boolean verloren = master.niederlage();
