@@ -1,0 +1,187 @@
+commit da86a849aee247e28ae4506e33f33abb4b4bdb18
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Tue Nov 5 18:21:08 2013 +0100
+
+    Kommentare
+    
+    Kommentare und finale veraenderungen
+
+ src/java/control/MastermindControler.java | 14 +++++----
+ src/java/model/MastermindModel.java       | 49 +++++++++++++++++++++++++++++--
+ test/model/MastermindModelTest.java       |  7 ++++-
+ web/mastermindView.jsp                    |  6 ++--
+ 4 files changed, 66 insertions(+), 10 deletions(-)
+
+commit 9f62e18888a43c599a900765d662462daebb1f33
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Tue Nov 5 17:33:08 2013 +0100
+
+    Testing
+    
+    TestCoverage auf 80
+    Funktionalitaeten erweitert
+
+ nbproject/project.properties              |  3 +-
+ src/java/control/MastermindControler.java |  4 ++
+ src/java/main/NewClass.java               | 24 --------
+ src/java/model/MastermindModel.java       | 99 ++++++++++++++++++++++++++-----
+ test/model/MastermindModelTest.java       | 82 +++++++++++++++++++++++++
+ web/mastermindView.jsp                    |  3 +-
+ 6 files changed, 174 insertions(+), 41 deletions(-)
+
+commit 1400247449aa81c352e698fc8b5a7d61fce99c0d
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Mon Nov 4 09:28:40 2013 +0100
+
+    Fehlerbehebung
+    
+    Fehler im webxml korigiert
+    Logikfehler des Mastermind Model korigiert
+
+ src/java/control/MastermindControler.java | 11 ++++++-----
+ src/java/model/MastermindModel.java       | 16 ++++++++++------
+ web/WEB-INF/web.xml                       |  6 +++---
+ web/mastermindView.jsp                    |  2 +-
+ 4 files changed, 20 insertions(+), 15 deletions(-)
+
+commit 9e6c525c69a36a854131ffa90a5702ee32be7aa6
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 20:27:43 2013 +0100
+
+    Fehler in Model
+    
+    Fehler in Model bei der Initialisierung behoben
+
+ .gitignore                                |  3 ++-
+ src/java/control/MastermindControler.java |  1 -
+ src/java/main/NewClass.java               | 24 ++++++++++++++++++++++++
+ src/java/model/MastermindModel.java       | 10 ++++++----
+ 4 files changed, 32 insertions(+), 6 deletions(-)
+
+commit 5c245a2ee824d942b00ce409ccfbbfc4c475cc96
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 19:58:32 2013 +0100
+
+    Fehler behoben
+    
+    Fehler bei den URL Pattern behoben
+
+ nbproject/private/retriever/catalog.xml            |   4 +
+ .../technetwork/jsc/xml/ns/j2ee/index.html         | 410 +++++++++++++++++++++
+ src/java/Cotroller/MastermindController.java       | 105 ------
+ src/java/control/MastermindControler.java          | 103 ++++++
+ src/java/model/MastermindModel.java                |   4 -
+ web/MastermindView.jsp                             |  43 ---
+ web/WEB-INF/web.xml                                |  15 +-
+ web/index.html                                     |   2 +-
+ web/mastermindView.jsp                             |  46 +++
+ 9 files changed, 569 insertions(+), 163 deletions(-)
+
+commit bacc7a9534fe00416d827d284f9d7b0ab8191845
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 18:40:28 2013 +0100
+
+    Package bezeichnungen
+    
+    Package bezeichnungen korigiert
+
+ src/java/Cotroller/MastermindController.java |  9 ++-
+ src/java/Model/MastermindModel.java          | 83 ----------------------------
+ src/java/model/MastermindModel.java          | 83 ++++++++++++++++++++++++++++
+ web/MastermindView.jsp                       | 15 +++--
+ 4 files changed, 97 insertions(+), 93 deletions(-)
+
+commit 0067a86ef906f9201e0c2ab1c23c89b31c41f6a5
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 18:10:41 2013 +0100
+
+    MastermindModel Erweitert
+    
+    MastermindModel um die Funktionalitaeten: gewonnen, verloren,
+    StringHTML erweitert
+
+ src/java/Model/MastermindModel.java | 21 ++++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+
+commit 28ef288ba86acc4c66b4aeb26b6899b089692b34
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 17:47:06 2013 +0100
+
+    JSP
+    
+    Java Server Pages fertiggestellt
+
+ src/java/Cotroller/MastermindController.java | 36 +++++++++++++++++-----------
+ src/java/Model/MastermindModel.java          | 22 ++++++++++-------
+ web/MastermindView.jsp                       | 27 ++++++++++++++++++---
+ 3 files changed, 59 insertions(+), 26 deletions(-)
+
+commit bceeca43de32aeb57157609ca3497240e9561a9a
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 16:46:34 2013 +0100
+
+    Indexhtml
+    
+    Index Html mit einer Spielanleitung gestaltet!
+
+ .gitignore                                   |  1 +
+ src/java/Cotroller/MastermindController.java |  8 ++++++++
+ web/index.html                               | 17 +++++++++++++++--
+ 3 files changed, 24 insertions(+), 2 deletions(-)
+
+commit 01bb909034a54f0e506665d872c2f12b18643ee8
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 16:25:21 2013 +0100
+
+    Model
+    
+    Model sollte funtktionieren muss getestet werden
+
+ src/java/Model/MastermindModel.java | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit e677a15927f76f3d626993a61f01f89065519e1c
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 16:20:20 2013 +0100
+
+    Model
+    
+    Model erster Funktionalitaeten
+
+ src/java/Model/MastermindModel.java | 36 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 35 insertions(+), 1 deletion(-)
+
+commit bebf9df682501aa9f1c2d6e0960f058f9286d3e6
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 16:15:09 2013 +0100
+
+    Model und Controller
+    
+    Model und controller Klassen erstellt
+
+ src/java/Cotroller/MastermindController.java | 90 ++++++++++++++++++++++++++++
+ src/java/Model/MastermindModel.java          | 13 ++++
+ web/WEB-INF/web.xml                          | 16 +++++
+ 3 files changed, 119 insertions(+)
+
+commit 6bb94b112ca4a7066daf3f7a373fb75c754e3876
+Author: tobischuschnig <tschuschnig@student.tgm.ac.at>
+Date:   Sun Nov 3 16:13:02 2013 +0100
+
+    Projekt
+    
+    Projekt erstellt und Java Server Page erstellt
+
+ build.xml                            |   71 ++
+ nbproject/ant-deploy.xml             |  111 +++
+ nbproject/build-impl.xml             | 1410 ++++++++++++++++++++++++++++++++++
+ nbproject/genfiles.properties        |    8 +
+ nbproject/private/private.properties |    7 +
+ nbproject/private/private.xml        |    4 +
+ nbproject/project.properties         |   87 +++
+ nbproject/project.xml                |   18 +
+ src/conf/MANIFEST.MF                 |    2 +
+ web/MastermindView.jsp               |   17 +
+ web/WEB-INF/beans.xml                |    6 +
+ web/index.html                       |   14 +
+ 12 files changed, 1755 insertions(+)

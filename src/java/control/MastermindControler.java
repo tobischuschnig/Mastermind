@@ -53,6 +53,7 @@ public class MastermindControler extends HttpServlet {
                 int[] vers = {Integer.parseInt(n1), Integer.parseInt(n2), Integer.parseInt(n3), Integer.parseInt(n4)};
                 master.check(vers);
             } 
+            
         }
         //Abfragen der zu setzenden Attribute
         boolean gewonnen = master.sieg();
