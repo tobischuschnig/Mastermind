@@ -35,6 +35,10 @@ public class MastermindControler extends HttpServlet {
     public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
+        String bool = request.getParameter("restart");
+        if(bool != null) {
+            master.restart();
+        }
         //Eingaben speichern
         String n1 = request.getParameter("number1");
         String n2 = request.getParameter("number2");
