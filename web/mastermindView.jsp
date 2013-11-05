@@ -18,8 +18,10 @@
             boolean gewonnen = false;
             boolean verloren = false;
             String text = "";
-            if(gewonnen == false && verloren == false) {  
-                out.print("Versuch " + "1" + " von 10:<br>");%>
+            Integer i = 0; 
+            if(gewonnen == false && verloren == false) { 
+                i++;
+                out.print("Versuch " + i + " von 10:<br>");%>
                 <form method="POST" action="SelectNumber.do">
                     <input type=text size="2" name="number1"/>
                     <input type=text size="2" name="number2"/>

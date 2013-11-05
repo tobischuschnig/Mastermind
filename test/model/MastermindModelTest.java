@@ -13,7 +13,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Testet die Klasse MastermindModel
  * @author tobi
  */
 public class MastermindModelTest {
@@ -28,6 +28,7 @@ public class MastermindModelTest {
     
     /**
      * Test of check method, of class MastermindModel.
+     * Testet ob die anderen Konstruktoren ordnungsgemaes funktionieren
      */
     @Test
     public void konstruktorTest() {
@@ -43,6 +44,8 @@ public class MastermindModelTest {
 
     /**
      * Test of check method, of class MastermindModel.
+     * Hier wird ueberprueft ob der sieg bei einer richtigen Eingabe errungen wird
+     * und ob die zuruecksetzfunktion funktioniert
      */
     @Test
     public void checkSiegTest() {
@@ -59,6 +62,7 @@ public class MastermindModelTest {
     
     /**
      * Test of check method, of class MastermindModel.
+     * Hier wird ueberprueft ob nach 10 versuchen auch verloren angezeigt wird
      */
     @Test
     public void checkVerlorenTest() {
@@ -72,6 +76,7 @@ public class MastermindModelTest {
 
     /**
      * Test of stringHTML method, of class MastermindModel.
+     * Dabei wird ueberprueft ob die umwandlung in den Text eine Exception wirft
      */
     @Test
     public void stringHTMLTest() {

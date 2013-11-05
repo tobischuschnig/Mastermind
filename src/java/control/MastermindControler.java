@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Das ist der Controller des Webspiels Mastermind es handelt sich dabei 
+ * um ein Servlet der mittels eines Request Dispatcher mit dem JSP komm
+ * uniziert
  * @author tobi
+ * @Datum 1.11.2013
  */
 //@WebServlet(name = "MastermindController", urlPatterns = {"/SelectNumber.do"})
 public class MastermindControler extends HttpServlet {
@@ -39,27 +42,28 @@ public class MastermindControler extends HttpServlet {
         if(bool != null) {
             master.restart();
         }
-        //Eingaben speichern
+        //Speichern der Eingabe
         String n1 = request.getParameter("number1");
         String n2 = request.getParameter("number2");
         String n3 = request.getParameter("number3");
         String n4 = request.getParameter("number4");
+        //Ueberpruefen ob sie null ist und ob sie im erlaubten Wertebereich liegt
         if(n1 != null && n2 != null && n3 != null && n4 != null ) {
-            //mittels regex Eingaben pruefen
             if(n1.matches("[1-9]") && n2.matches("[1-9]") && n3.matches("[1-9]") && n4.matches("[1-9]")){
                 int[] vers = {Integer.parseInt(n1), Integer.parseInt(n2), Integer.parseInt(n3), Integer.parseInt(n4)};
                 master.check(vers);
             } 
         }
+        //Abfragen der zu setzenden Attribute
         boolean gewonnen = master.sieg();
         boolean verloren = master.niederlage();
         String text = master.stringHTML();
-        
+        //Setzen der Attribute
         request.setAttribute("gewonnen", gewonnen);
         request.setAttribute("verloren", verloren);
         request.setAttribute("text", text);
         
-        //weiterleiten an game jsp
+        //Weiterleitung der Aenderungen an das JSP
         RequestDispatcher view = request.getRequestDispatcher("mastermindView.jsp");
         view.forward(request, response);
     }
